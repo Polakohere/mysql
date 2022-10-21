@@ -1,5 +1,19 @@
 USE sakila;
 
+
+--                                 Strona 105 The ORDER BY Clause
+
+-- The ORDER BY clause indicates that sorting is required, followed by the column that
+-- should be used as the sort key. In this example, you’re sorting by name in alphabeti‐
+-- cally ascending order—the default sort is case-insensitive and in ascending order, and
+-- MySQL automatically sorts alphabetically because the columns are character strings.
+-- The way strings are sorted is determined by the character set and collation order that
+-- are being used. We discuss these in “Collation and Character Sets” on page 133. For
+-- most of this book, we assume that you’re using the default settings.
+
+-- SELECT address, last_update FROM address
+-- ORDER BY last_update LIMIT 5;
+
 -- --                              Strona 109 Joining Two Tables
 
 -- -- We use only one join syntax in this chapter. There are two more (LEFT and RIGHT
@@ -7,7 +21,7 @@ USE sakila;
 -- -- tables. The syntax we use here is the INNER JOIN, which is the most commonly used
 -- -- in daily activities. Let’s look at an example, and then we’ll explain more about how it
 -- -- works:
--- Inner Join pozwala nam w tym przykładzie na połączenie dwóch tabel używając country_id
+-- Inner Join pozwala nam w tym przykładzie na połączenie dwóch tabel używając country_id i dzięki temu wylistuje nam tabelę country 
 
 -- SELECT city, country FROM city INNER JOIN country
 -- ON city.country_id = country.country_id
@@ -29,6 +43,7 @@ USE sakila;
 -- -- Column aliases are useful for improving the expression of your queries, reducing the
 -- -- number of characters you need to type, and making it easier to work with program‐
 -- -- ming languages such as Python or PHP. Consider a simple, not-very-useful example:
+
 -- SELECT first_name AS 'First Name', last_name AS 'Last Name' FROM actor LIMIT 5; 
 
 -- -- 
@@ -46,6 +61,7 @@ USE sakila;
 -- -- for. In its most basic form, when we list every column we SELECT in GROUP BY, we end
 -- -- up with a DISTINCT equivalent. We’ve already established that a first name is not a
 -- -- unique identifier for an actor:
+
 -- SELECT first_name FROM actor
 -- WHERE first_name IN ('GENE', 'MERYL')
 -- GROUP BY first_name;
